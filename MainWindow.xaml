@@ -1,0 +1,84 @@
+﻿<Window x:Class="st.kbt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:st.kbt"
+        mc:Ignorable="d"
+        Title="KeyBoard" Height="375" Width="605">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="StatsNSettings" Grid.Column="0" Grid.Row="0" Background="LightGray" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Azure">
+                <TextBlock>Errors:</TextBlock>
+                <TextBlock x:Name="Errors">0</TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Azure">
+                <TextBlock>Speed (symb/min):</TextBlock>
+                <TextBlock x:Name="Speed">0</TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Azure">
+                <TextBlock>Difficulty:</TextBlock>
+                <Slider x:Name="slider" TickPlacement="BottomRight" Orientation="Horizontal" 
+                        ValueChanged="Slider_ValueChanged" Value="2" Minimum="1" Maximum="20" Interval="1" Width="200"></Slider>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button FontSize="15" Click="ButtonStop_Click" Background="Aquamarine" Width="126" FontFamily="Lucida Console" >Start</Button>
+            </WrapPanel>
+        </Grid>
+        <Grid x:Name="RunningStrings" Grid.Column="0" Grid.Row="1" ShowGridLines="True">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="28"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="SPgeneratedKey" Orientation="Horizontal" Grid.Column="0" Grid.Row="0" 
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Background="Bisque" ></StackPanel>
+            <StackPanel x:Name="SPinputKey" Orientation="Horizontal" Grid.Column="0" Grid.Row="1" 
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Background="Bisque"></StackPanel>
+            <!--<TextBlock x:Name="generatedStr_" Grid.Column="0" Grid.Row="0" FontSize="28" HorizontalAlignment="Right"></TextBlock>
+            <TextBlock x:Name="inputStr_" Grid.Column="0" Grid.Row="1" FontSize="28" HorizontalAlignment="Right"></TextBlock>-->
+        </Grid>
+        <Grid x:Name="keyBoardGrid" Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <WrapPanel x:Name="FirstKBLine" Grid.Column="0" Grid.Row="0"></WrapPanel>
+            <WrapPanel x:Name="SecondKBLine" Grid.Column="0" Grid.Row="1"></WrapPanel>
+            <WrapPanel x:Name="ThirdKBLine" Grid.Column="0" Grid.Row="2"></WrapPanel>
+            <WrapPanel x:Name="FourthKBLine" Grid.Column="0" Grid.Row="3"></WrapPanel>
+            <WrapPanel x:Name="FifthKBLine" Grid.Column="0" Grid.Row="4"></WrapPanel>
+        </Grid>
+    </Grid>
+</Window>
